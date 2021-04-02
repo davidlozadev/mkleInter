@@ -1,0 +1,81 @@
+Angel Lozada
+
+**Answers**
+
+1. What is the shortest list between “crawl” and “run”?
+
+	The shortest list found it by the program was:
+
+	crawl, brawl, brawn, bran, ran, run.
+ 
+2. What is the shortest list between “mouse” and “elephant”?
+
+	The program could not find a valid word list between the two
+	words.
+
+3. Does your program necessarily return the shortest list?
+
+	It will return the shortest list if the Breadth-first search
+	is selected, if Depth-first search is selected it will return the
+	longest list.
+
+4. What assumptions did you make in your program?
+
+	Recursion was avoided because of the size of the data to analyze	
+	
+	Data to analize should be available locally
+
+	The size of the data to analize (dictionary) can grow
+
+	If user enter a invalid word the search won't start and should
+	provide new valid words
+
+	If the user provide a wrong argument for the type of search, BFS
+	will be the default
+
+	If the user provide a wrong argument to continue (anything different
+	than "n") the execution of the program will continue
+
+	The execution of the program requires an instance of the DictionaryWalk
+	class to invoke generate_List. The rest of the methods are static and private.
+
+	The design was done mostly with static methods and variables, to keep available
+	more space in the heap memory for the develop of other features.
+	
+5. How did you test your program?
+
+	keyboard input through the interface, print statements and debugging tools. 
+	Still working on the unit tests
+	
+6. What is the Big-O complexity of your program?
+	
+	O(n) worst case scenario when I have to visit all the nodes in order to find the
+	target word
+	
+7. Suppose each letter had a point value. Discuss (but don’t code) how your algorithm would
+ change if you wanted to find the list with the lowest possible point total.
+
+	An implementation of the Dijkstra algorithm will be needed, I need to reestructure
+	Node and Word class in order to add the properties necessary to track the distance
+	in between nodes, and decide which one is the optimal to visit.
+
+8. Discuss (don’t code) how you might change your program if your concern was minimizing memory usage.
+
+	The program was designed in function of this, almost every method and variable is static, 
+	when iterating over and modifying a word, a StringBuffer was used. The creation of objects
+	is minimum. And the object dereferencing is very rare so the GarbageCollector is not active
+	too much.
+	
+	But there is always space for improvement and the only thing that I can think of now
+	is limiting the metaspace using the flags provided by the JVM to make proper use of every byte
+
+9. Discuss (don’t code) how you might change your program if your concern was minimizing CPU time.
+
+	Recursion was avoided, the GC is not active too much so I would find a way to construct
+	a graph from Adjacency lists (I tried that, not success....yet), and add nodes and edges
+	to a map, that hopefully will let me get rid off of the calls to the methods traversing,
+	modifying and inspecting my current implementation
+
+	
+
+	
