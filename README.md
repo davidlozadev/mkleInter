@@ -1,2 +1,0 @@
-# mkleInter
-Dictionary Walk
